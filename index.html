@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Music Gift</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+#particles-js{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+       
+}
+        body {
+            scroll-behavior: smooth;
+		background-color: transparent !important;
+        }
+        .navbar {
+            background-color: #007bff;
+        }
+        .navbar a {
+            color: white;
+        }
+.cover{background-size: cover}
+        .section {
+            padding: 100px 0;
+        }
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+        }
+
+.mainbox{
+position: absolute;
+left:50%;
+top: 50%;
+transform: translate(-50%, -50%);
+}
+    </style>
+
+
+    <meta charset="utf-8" />
+    <meta name="author" content="Script Tutorials" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>HTML5 Audio player with playlist | Script Tutorials</title>
+
+    <!-- add styles and scripts -->
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/musicplayer.js"></script>
+    <!-- Add the slick-theme.css if you want default styling -->
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
+    <!-- Add the slick-theme.css if you want default styling -->
+
+</head>
+
+<body>
+
+
+
+
+ <!-- Music Section -->
+    <section id="particles-js" class="section bg-primary text-white text-center">
+        <div class="container">
+            <div class="mainbox">
+
+		<h1>Birthday Gift Special</h1>
+            <p>Special Dedicated to Dear Naima Ahmed Nup Ma'am</p>
+
+           <div class="example">
+        <ul class="playlist">
+            <li data-cover="rarestar.jpg" data-artist="Nabiul Hasan Munna"><a
+                    href="sample-3s.mp3">A Rare Star in the sky</a></li>
+
+	</ul>
+
+</div>
+    </div>
+        </div>
+    </section>
+
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+<script src="js/particles.js"></script>
+<script src="js/demo/js/app.js"></script>
+
+    <script>
+
+        $(".example").musicPlayer({
+            elements: ['artwork', 'information', 'controls', 'progress', 'time', 'volume'], // ==> This will display in  the order it is inserted
+            //elements: [ 'controls' , 'information', 'artwork', 'progress', 'time', 'volume' ],
+            //controlElements: ['backward', 'play', 'forward', 'stop'],
+            //timeElements: ['current', 'duration'],
+            //timeSeparator: " : ", // ==> Only used if two elements in timeElements option
+            //infoElements: [  'title', 'artist' ],
+
+            //volume: 10,
+            //autoPlay: true,
+            //loop: true,
+
+                    });
+
+        $('.example3 .playlist').on('init', function (event, slick) {
+
+            $(".example3").musicPlayer({
+                playlistItemSelector: '.slick-slide:not(.slick-cloned) .song-item',
+                elements: ['artwork', 'information', 'controls', 'progress', 'time', 'volume'], // ==> This will display in  the order it is inserted
+                //elements: [ 'controls' , 'information', 'artwork', 'progress', 'time', 'volume' ],
+                //controlElements: ['backward', 'play', 'forward', 'stop'],
+                //timeElements: ['current', 'duration'],
+                //timeSeparator: " : ", // ==> Only used if two elements in timeElements option
+                //infoElements: [  'title', 'artist' ],
+
+                //volume: 10,
+                autoPlay: true,
+                loop: true,
+
+         
+
+            });
+
+        });
+        //slick slider initialisation
+        $(".example3 .playlist").slick({
+            arrows: false,
+            dots: true
+        });
+
+        slideToActive = function () {
+            var slideIndex = $('.slick-slide:not(.slick-cloned) .song-item.active').closest('.slick-slide').attr('data-slick-index');
+            $('.example .playlist').slick('slickGoTo', slideIndex);
+        }
+
+        $('.slick-dots button').click(function () {
+            var index = $(this).text() - 1;
+            index = '[data-slick-index="' + index + '"]';
+            $('.slick-slide:not(.slick-cloned)' + index + ' .song-item a').click();
+        });
+
+        $(".example2").musicPlayer({
+            //volume: 10,
+            //elements: ['artwork', 'controls', 'progress', 'time', 'volume'],
+            //playerAbovePlaylist: false,
+            // autoPlay: true,
+            // loop: true,
+            onLoad: function () {
+                //Add Audio player
+                plElem = "<div class='pl'></div>";
+                $('.example2').find('.player').append(plElem);
+                // show playlist
+                $('.pl').click(function (e) {
+                    e.preventDefault();
+                    $('.example2').find('.playlist').toggleClass("hidden");
+                });
+            },
+
+        });
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
